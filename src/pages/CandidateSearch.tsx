@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
-import { searchGithub, searchGithubUser } from '../api/API';
+// import { searchGithub, searchGithubUser } from '../api/API';
 
 const CandidateSearch = () => {
-  return <h1>CandidateSearch</h1>;
+  const [candidate, setCandidate] = useState();
+
+  useEffect(() => {
+    // get random candidate
+    // setCandidate to it
+  });
+  return <h1>Candidate Search</h1>;
 };
 
 export default CandidateSearch;

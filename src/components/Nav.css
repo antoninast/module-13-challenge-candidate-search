@@ -1,0 +1,10 @@
+.nav-bar {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-bar-item {
+    margin: 1.5rem 2rem;
+    font-weight: 500;
+}
