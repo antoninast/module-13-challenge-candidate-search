@@ -1,13 +1,29 @@
-// import { useState, useEffect } from 'react';
-// import { searchGithub, searchGithubUser } from '../api/API';
+import { useState, useEffect } from 'react';
+import { searchGithub, searchGithubUser } from '../api/API';
 
 const CandidateSearch = () => {
-  // const [candidate, setCandidate] = useState();
+  const [candidate, setCandidate] = useState('');
 
-  // useEffect(() => {
-  //   // get random candidate
-  //   // setCandidate to it
-  // });
+  const fetchUsers = async () => {
+    const result = await searchGithub();
+    const user = await searchGithubUser('antoninast');
+
+    console.log(
+      1, candidate,
+      2, result,
+      3, user
+    );
+  }
+
+  useEffect(()=> {
+    // get random candidate
+    // setCandidate to it
+
+    fetchUsers();
+    setCandidate('new');
+
+
+  }, []);
   return <h1>Candidate Search</h1>;
 };
 
