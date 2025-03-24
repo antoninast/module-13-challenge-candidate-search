@@ -1,0 +1,49 @@
+.current-user {
+    background-color: #050505;
+    border-radius: 20px;
+    height: 40rem;
+    width: 310px;
+}
+
+.user-info {
+    padding: 0.4rem;
+}
+
+img {
+    border-radius: 20px 20px 0px 0px;
+    width: 310px;
+}
+
+.name-and-username {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.name-and-username p {
+    font-style: italic;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.action-buttons span {
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: #050505;
+    font-size: 2rem;
+    font-style: bold;
+    cursor: pointer;
+}
+
+.action-buttons .remove {
+    background-color: red;
+}
+
+.action-buttons .add {
+    background-color: green;
+}
