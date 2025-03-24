@@ -1,0 +1,67 @@
+.column-names {
+    display: grid;
+    grid-template-columns: repeat(7, 160px);
+    background-color: black;
+}
+
+.column-names div {
+    border: 1px solid darkblue;
+    text-align: center;
+    padding: 0.2rem;
+}
+
+.saved-user {
+    display: grid;
+    grid-template-columns: repeat(7, 160px);
+}
+
+.saved-user.light {
+    background-color: rgb(52, 46, 46);
+}
+
+.saved-user.dark {
+    background-color: black;
+}
+
+.saved-user div {
+    border: 1px solid darkblue;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.saved-user img {
+    align-items: center;
+}
+
+.saved-user div  p {
+    padding-left: 0.5rem;
+}
+
+.saved-user .name-and-username {
+    font-weight: 600;
+}
+
+.saved-user .name-and-username p {
+    margin: 0px;
+}
+
+.saved-user .name-and-username .username {
+    font-style: italic;
+}
+
+.saved-user .action-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saved-user .remove {
+    background-color: red;
+    border-radius: 50%;
+    color: black;
+    padding: 0.2rem;
+    text-align: center;
+    cursor: pointer;
+}
