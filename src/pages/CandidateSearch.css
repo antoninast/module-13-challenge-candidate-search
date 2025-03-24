@@ -9,29 +9,29 @@
     padding: 0.4rem;
 }
 
-img {
+.current-user img {
     border-radius: 20px 20px 0px 0px;
     width: 310px;
 }
 
-.name-and-username {
+.current-user .name-and-username {
     font-weight: 700;
     font-size: 1.2rem;
 }
 
-.name-and-username p {
+.current-user .name-and-username p {
     font-style: italic;
     margin: 0;
     overflow-wrap: anywhere;
 }
 
-.action-buttons {
+.current-user-wrap .action-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
 }
 
-.action-buttons span {
+.current-user-wrap .action-buttons span {
     padding: 0.5rem;
     border-radius: 50%;
     color: #050505;
@@ -40,10 +40,10 @@ img {
     cursor: pointer;
 }
 
-.action-buttons .remove {
+.current-user-wrap .action-buttons .remove {
     background-color: red;
 }
 
-.action-buttons .add {
+.current-user-wrap .action-buttons .add {
     background-color: green;
 }
