@@ -39,16 +39,16 @@ const SavedCandidates = () => {
 
   return (
     <>
-      <h2>Potential Candidates</h2>
+      <h1>Potential Candidates</h1>
       <div className="potential-candidates">
-      <div className="column-names">
-        {columnNames.map((column) => (
-          <div>{column}</div>
-        ))}
-      </div>
-      <div className="saved-users">
-        {users.map((user: Candidate, index) => (
-          <div className={index % 2 === 0 ? "saved-user light" : "saved-user dark"}>
+        <div className="column-names">
+          {columnNames.map((column, index) => (
+            <div key={index}>{column}</div>
+          ))}
+        </div>
+        <div className="saved-users">
+          {users.map((user: Candidate, index) => (
+            <div key={index} className={index % 2 === 0 ? "saved-user light" : "saved-user dark"}>
               <div className="user-avatar">
                 <img src={user.avatarUrl} alt="user-avatar" />
               </div>
@@ -71,9 +71,9 @@ const SavedCandidates = () => {
               <div className="action-button">
                 <span className="material-symbols-outlined remove" onClick={() => removeCandidate(user.login)}>remove</span>
               </div>
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

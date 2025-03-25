@@ -1,3 +1,8 @@
+.potential-candidates {
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+}
+
 .column-names {
     display: grid;
     grid-template-columns: repeat(7, 160px);
@@ -25,18 +30,25 @@
 
 .saved-user div {
     border: 1px solid darkblue;
-    height: 5rem;
+    height: 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow-x: auto;
 }
 
-.saved-user img {
+.saved-user .user-avatar {
+    display: flex;
     align-items: center;
 }
 
+.saved-user img {
+    border-radius: 10px;
+    width: 35%;
+}
+
 .saved-user div  p {
-    padding-left: 0.5rem;
+    padding: 0.2rem;
 }
 
 .saved-user .name-and-username {
