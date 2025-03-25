@@ -28,43 +28,60 @@ const CandidateSearch = () => {
         }
       }
     });
-    setCandidates(randomUsers);
+
+    setTimeout(() => {
+      setCandidates(randomUsers);
+      setCurrentCandidate(randomUsers[candidateIndex]);
+    }, 200);
+  }
+
+  const addSavedCandidateToLocalStorage = () => {
+    const localStorageData = localStorage.getItem('savedCandidates');
+    if (localStorageData) {
+      const savedCandidates = JSON.parse(localStorageData);
+      const isUserSaved = savedCandidates.find((el: Candidate) => el.login === currentCandidate?.login);
+      if (!isUserSaved) {
+        savedCandidates.push(currentCandidate);
+        localStorage.setItem('savedCandidates', JSON.stringify(savedCandidates));
+      } else {
+        alert('User is already saved');
+      }
+    } else {
+      localStorage.setItem('savedCandidates', JSON.stringify([currentCandidate]))
+    }
   }
 
   const addCandidate= () => {
-    if (candidateIndex === 29) {
+    addSavedCandidateToLocalStorage();
+
+    if (candidateIndex === candidates.length - 1) {
       alert('no more candidates to show');
       return;
     }
+
     setCandidateIndex(candidateIndex + 1);
-    console.log('add cand', candidateIndex);
+    setCurrentCandidate(candidates[candidateIndex + 1]);
   }
 
   const removeCandidate= () => {
-    if (candidateIndex === 29) {
+    if (candidateIndex === candidates.length - 1) {
       alert('no more candidates to show');
       return;
     }
     setCandidateIndex(candidateIndex + 1);
+    setCurrentCandidate(candidates[candidateIndex + 1])
   }
 
   useEffect(()=> {
     if (candidates.length === 0) {
       fetchRandomUsers();
     }
-
-    if (!candidates[candidateIndex]?.login) {
-      setCandidateIndex(candidateIndex + 1);
-    }
-
-    setCurrentCandidate(candidates[candidateIndex]);
   }, [candidateIndex]);
 
   return (<>
     <h1>Candidate Search</h1>
-
     {currentCandidate?.login ?
-      <div>
+      <div className='current-user-wrap'>
         <div className="current-user">
           <img src={currentCandidate.avatarUrl} alt="user-avatar" />
           <div className="user-info">
