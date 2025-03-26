@@ -37,46 +37,49 @@ const SavedCandidates = () => {
 
   useEffect(() => {
     getUsersFromLocalStorage();
-  }, []);
+  }, [users]);
 
   return (
     <>
       <h1>Potential Candidates</h1>
-      <div className="potential-candidates">
-        <div className="column-names">
-          {columnNames.map((column, index) => (
-            <div key={index}>{column}</div>
-          ))}
-        </div>
-        <div className="saved-users">
-          {users.map((user: Candidate, index) => (
-            <div key={index} className={index % 2 === 0 ? "saved-user light" : "saved-user dark"}>
-              <div className="user-avatar">
-                <img src={user.avatarUrl} alt="user-avatar" />
-              </div>
-              <div className="name-and-username">
-                <p>{user.name}</p>
-                <p className="username">({user.login})</p>
-              </div>
-              <div>
-                <p>{user.location}</p>
-              </div>
-              <div>
-                <p>{user.email}</p>
-              </div>
-              <div>
-                <p>{user.company}</p>
-              </div>
-              <div>
-                <p>{user.bio}</p>
-              </div>
-              <div className="action-button">
-                <span className="material-symbols-outlined remove" onClick={() => removeCandidate(user.login)}>remove</span>
-              </div>
+      {users.length > 0 ? 
+            <div className="potential-candidates">
+            <div className="column-names">
+              {columnNames.map((column, index) => (
+                <div key={index}>{column}</div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+            <div className="saved-users">
+              {users.map((user: Candidate, index) => (
+                <div key={index} className={index % 2 === 0 ? "saved-user light" : "saved-user dark"}>
+                  <div className="user-avatar">
+                    <img src={user.avatarUrl} alt="user-avatar" />
+                  </div>
+                  <div className="name-and-username">
+                    <p>{user.name}</p>
+                    <p className="username">({user.login})</p>
+                  </div>
+                  <div>
+                    <p>{user.location}</p>
+                  </div>
+                  <div>
+                    <p>{user.email}</p>
+                  </div>
+                  <div>
+                    <p>{user.company}</p>
+                  </div>
+                  <div>
+                    <p>{user.bio}</p>
+                  </div>
+                  <div className="action-button">
+                    <span className="material-symbols-outlined remove" onClick={() => removeCandidate(user.login)}>remove</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+      : "There are no potential candidates"}
+
     </>
   );
 };

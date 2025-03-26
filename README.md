@@ -1,33 +1,30 @@
-# React + TypeScript + Vite
+# Candidate Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deployed website
+https://module-13-challenge-candidate-search-zu21.onrender.com/
 
-Currently, two official plugins are available:
+## Setup instructions
+If you want to work on this repository on your machine you can:
+1. Clone this repository
+2. Create `.env` file in the root directory and add VITE_GITHUB_TOKEN=YOUR_GITHUB_TOKEN
+3. Run `npm install`
+4. Run `npm run build`
+5. Run `npm run dev`
 
-* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh
-* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc), which uses [SWC](https://swc.rs/) for Fast Refresh
+## Application Overview
+Potential employer can search GitHub users and them as "Potential Candidate".
 
-## Expanding the ESLint configuration
+On the **Home** page you will see a user's profile and two buttons(minus and plus).
 
-If you're developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+If you click on the "+" button, you will add the user as "Potential Candidate". Otherwise, if you click on the "-" button, you will see the next candidate, without adding him as "Potential Candidate".
 
-* Configure the top-level `parserOptions` property as follows:
+The maximum number of users you will see per session is 30. If you want to see more users, you have to refresh the page.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+If you go to the **Potential Candidates** page, you will see a list of candidates that you have selected. You can remove a user from that list by clicking on the "-" button.
 
-* Replace `plugin:@typescript-eslint/recommended` with `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`.
-* Optionally, add `plugin:@typescript-eslint/stylistic-type-checked`.
-* Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` and `plugin:react/jsx-runtime` to the `extends` list.
 
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+Home Page - Search Candidates
+![candidate-search-page](./src/assets/images/candidate-search-page.png)
+
+Potential Candidates
+![potential-candidates-page](./src/assets/images/potential-candidates-page.png)
