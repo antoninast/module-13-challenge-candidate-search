@@ -1,8 +1,8 @@
 .current-user {
     background-color: #050505;
     border-radius: 20px;
-    height: 40rem;
-    width: 310px;
+    height: 35rem;
+    width: 19rem;
 }
 
 .user-info {
@@ -11,7 +11,7 @@
 
 .current-user img {
     border-radius: 20px 20px 0px 0px;
-    width: 310px;
+    width: 100%;
 }
 
 .current-user .name-and-username {
@@ -29,6 +29,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
 .current-user-wrap .action-buttons span {

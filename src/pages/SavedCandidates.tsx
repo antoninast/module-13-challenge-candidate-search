@@ -10,6 +10,7 @@ const SavedCandidates = () => {
     const localStorageData = localStorage.getItem('savedCandidates');
     
     if (localStorageData) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       setUsers(JSON.parse(localStorageData));
     }
   }
@@ -18,7 +19,8 @@ const SavedCandidates = () => {
     const localStorageData = localStorage.getItem('savedCandidates');
 
     if (localStorageData) {
-      const savedUsers = JSON.parse(localStorageData);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const savedUsers: [] = JSON.parse(localStorageData);
       const updatedUsers = savedUsers.filter((user: Candidate) => user.login !== username);
       localStorage.setItem('savedCandidates', JSON.stringify(updatedUsers));
       return 'user_removed';

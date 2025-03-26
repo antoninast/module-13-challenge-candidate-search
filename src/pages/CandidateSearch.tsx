@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useState, useEffect } from 'react';
 
 import './CandidateSearch.css';
@@ -11,13 +13,17 @@ const CandidateSearch = () => {
   const randomUsers: Candidate[] = [];
 
   const fetchRandomUsers = async () => {
-    const fetchedUsers = await searchGithub();
-    fetchedUsers.forEach(async(user: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const fetchedUsers: [] = await searchGithub();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-misused-promises
+    fetchedUsers.forEach(async (user: Candidate) => {
       if (user.login) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const userInfo = await searchGithubUser(user.login);
         if (userInfo) {
           randomUsers.push({
             login: user.login,
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             name: userInfo.name,
             location: userInfo.location,
             email: userInfo.email,
@@ -38,10 +44,11 @@ const CandidateSearch = () => {
   const addSavedCandidateToLocalStorage = () => {
     const localStorageData = localStorage.getItem('savedCandidates');
     if (localStorageData) {
-      const savedCandidates = JSON.parse(localStorageData);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const savedCandidates: Candidate[] = JSON.parse(localStorageData);
       const isUserSaved = savedCandidates.find((el: Candidate) => el.login === currentCandidate?.login);
       if (!isUserSaved) {
-        savedCandidates.push(currentCandidate);
+        savedCandidates.push(currentCandidate!);
         localStorage.setItem('savedCandidates', JSON.stringify(savedCandidates));
       } else {
         alert('User is already saved');
@@ -74,7 +81,11 @@ const CandidateSearch = () => {
 
   useEffect(()=> {
     if (candidates.length === 0) {
-      fetchRandomUsers();
+      try {
+        void fetchRandomUsers();
+      } catch (err) {
+        console.error(err);
+      }
     }
   }, [candidateIndex]);
 
